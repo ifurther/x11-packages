@@ -10,5 +10,5 @@ TERMUX_PKG_BUILD_IN_SRC=true
 
 termux_step_make() {
 #	sed 's/math/c++\/v1\/math/g' -i */*.c
-	make GCC=$CC LDFLAGS="$LDFLAGS" LIBRARIES="${TERMUX_PREFIX}/lib" INCLUDES="${TERMUX_PREFIX}/include:${TERMUX_PREFIX}/include/c++/v1"
+	make GCC=$CC LDFLAGS="$LDFLAGS" LIBRARIES="${TERMUX_PREFIX}/lib" INCLUDES="${TERMUX_PREFIX}/include:${TERMUX_PREFIX}/include/c++/v1:${TERMUX_PREFIX}/include/SDL2"
 }
