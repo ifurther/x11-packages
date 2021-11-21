@@ -3,7 +3,7 @@ TERMUX_PKG_DESCRIPTION="X virtual framebuffer"
 TERMUX_PKG_LICENSE="MIT"
 TERMUX_PKG_MAINTAINER="@termux"
 TERMUX_PKG_VERSION=1.20.11
-TERMUX_PKG_REVISION=1
+TERMUX_PKG_REVISION=2
 TERMUX_PKG_SRCURL=https://xorg.freedesktop.org/releases/individual/xserver/xorg-server-${TERMUX_PKG_VERSION}.tar.bz2
 TERMUX_PKG_SHA256=914c796e3ffabe1af48071d40ccc85e92117c97a9082ed1df29e4d64e3c34c49
 
@@ -60,7 +60,7 @@ termux_step_pre_configure() {
 	CFLAGS+=" -DFNDELAY=O_NDELAY"
 	CPPFLAGS+=" -I${TERMUX_PREFIX}/include/libdrm"
 
-	if [ -n "${TERMUX_DEBUG}" ]; then
+	if [ "$TERMUX_DEBUG_BUILD" = "true" ]; then
 		TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --enable-debug"
 	fi
 }

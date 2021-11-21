@@ -3,7 +3,7 @@ TERMUX_PKG_DESCRIPTION="A cross-platform application and UI framework"
 TERMUX_PKG_LICENSE="LGPL-3.0"
 TERMUX_PKG_MAINTAINER="Simeon Huang <symeon@librehat.com>"
 TERMUX_PKG_VERSION=5.12.11
-TERMUX_PKG_REVISION=2
+TERMUX_PKG_REVISION=5
 TERMUX_PKG_SRCURL="https://download.qt.io/official_releases/qt/5.12/${TERMUX_PKG_VERSION}/submodules/qtbase-everywhere-src-${TERMUX_PKG_VERSION}.tar.xz"
 TERMUX_PKG_SHA256=1c1b4e33137ca77881074c140d54c3c9747e845a31338cfe8680f171f0bc3a39
 TERMUX_PKG_DEPENDS="dbus, double-conversion, harfbuzz, libandroid-shmem, libc++, libice, libicu, libjpeg-turbo, libpng, libsm, libuuid, libx11, libxcb, libxi, libxkbcommon, openssl, pcre2, ttf-dejavu, freetype, xcb-util-image, xcb-util-keysyms, xcb-util-renderutil, xcb-util-wm, zlib, glib"
@@ -33,11 +33,11 @@ termux_step_pre_configure () {
         -e "s|@TERMUX_PREFIX@|${TERMUX_PREFIX}|g" \
         -e "s|@TERMUX_CC@|${TERMUX_HOST_PLATFORM}-clang|" \
         -e "s|@TERMUX_CXX@|${TERMUX_HOST_PLATFORM}-clang++|" \
-        -e "s|@TERMUX_AR@|${TERMUX_HOST_PLATFORM}-ar|" \
-        -e "s|@TERMUX_NM@|${TERMUX_HOST_PLATFORM}-nm|" \
-        -e "s|@TERMUX_OBJCOPY@|${TERMUX_HOST_PLATFORM}-objcopy|" \
+        -e "s|@TERMUX_AR@|llvm-ar|" \
+        -e "s|@TERMUX_NM@|llvm-nm|" \
+        -e "s|@TERMUX_OBJCOPY@|llvm-objcopy|" \
         -e "s|@TERMUX_PKGCONFIG@|${TERMUX_HOST_PLATFORM}-pkg-config|" \
-        -e "s|@TERMUX_STRIP@|${TERMUX_HOST_PLATFORM}-strip|" \
+        -e "s|@TERMUX_STRIP@|llvm-strip|" \
         -e "s|@TERMUX_CFLAGS@|${CPPFLAGS} ${CFLAGS}|" \
         -e "s|@TERMUX_CXXFLAGS@|${CPPFLAGS} ${CXXFLAGS}|" \
         -e "s|@TERMUX_LDFLAGS@|${LDFLAGS}|" \

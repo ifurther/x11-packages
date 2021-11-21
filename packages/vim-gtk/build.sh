@@ -4,9 +4,10 @@ TERMUX_PKG_LICENSE="VIM License"
 TERMUX_PKG_MAINTAINER="@termux"
 
 # vim should only be updated every 50 releases on multiples of 50.
-TERMUX_PKG_VERSION=8.2.3300
+TERMUX_PKG_VERSION=8.2.3500
+TERMUX_PKG_REVISION=1
 TERMUX_PKG_SRCURL=https://github.com/vim/vim/archive/v${TERMUX_PKG_VERSION}.tar.gz
-TERMUX_PKG_SHA256=f2048c21490fc843366ed2879c893fd85d16e6fcea3e6bb28c07ec0c88c57bbe
+TERMUX_PKG_SHA256=7f280d08800d99d270bb0f722db89b04798600a0214d0d74d410ec9d57c5d2aa
 
 TERMUX_PKG_DEPENDS="gdk-pixbuf, glib, gtk3, libcairo, libcanberra, libice, libiconv, liblua53, libsm, libx11, libxpm, libxt, ncurses, pango, python"
 TERMUX_PKG_CONFLICTS="vim, vim-python, vim-runtime"
@@ -16,7 +17,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 ac_cv_small_wchar_t=no
 vi_cv_path_python3_pfx=$TERMUX_PREFIX
 vi_cv_var_python3_abiflags=
-vi_cv_var_python3_version=3.9
+vi_cv_var_python3_version=3.10
 vim_cv_getcwd_broken=no
 vim_cv_memmove_handles_overlap=yes
 vim_cv_stat_ignores_slash=no
@@ -31,7 +32,7 @@ vim_cv_tty_group=world
 --enable-python3interp
 --with-features=huge
 --with-lua-prefix=$TERMUX_PREFIX
---with-python3-config-dir=$TERMUX_PREFIX/lib/python3.9/config-3.9/
+--with-python3-config-dir=$TERMUX_PREFIX/lib/python3.10/config-3.10/
 --with-tlib=ncursesw
 --with-x"
 
